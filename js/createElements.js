@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 const containerImages = document.querySelector('.container-images');
+
 export function createCardImage(imgElement) {
   const div = document.createElement('div');
   div.classList.add('card-image');

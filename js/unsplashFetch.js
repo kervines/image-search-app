@@ -7,26 +7,33 @@ import {
 export default function initFetch() {
   const form = document.querySelector('form');
   const inputSearch = document.querySelector('#search');
-  const button = document.querySelector('.btn');
   let countPage = 1;
 
-  form.addEventListener('submit', handleSubmit);
+  const unsplashAPI = async () => {
+    const keyAPI = 'ymrauY3eOE-V9IZZe235vwZsOvlmsKSKnDBu8N9JqTs';
+    const fetchApi = await fetch(
+      `https://api.unsplash.com/search/photos?page=${countPage}&per_page=9&query=${inputSearch.value}&lang=pt&client_id=${keyAPI}`
+    );
+    const data = await fetchApi.json();
+    return data;
+  };
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
+
+    unsplashAPI().then((datas) => {
+      datas.results.forEach((data) => {
+        console.log(data);
+        const img = createImage(data.urls.regular, data.alt_description);
+        createCardImage(img);
+      });
+    });
+
     if (countPage === 1) {
       createButton(handleSubmit);
     }
-    const unsplashAPI = fetch(
-      `https://api.unsplash.com/search/photos?page=${countPage}&per_page=9&query=${inputSearch.value}&lang=pt&client_id=${keyAPI}`
-    )
-      .then((response) => response.json())
-      .then((urls) => {
-        urls.results.forEach((url) => {
-          const img = createImage(url.urls.regular, url.alt_description);
-          createCardImage(img);
-        });
-      });
     countPage++;
-  }
+  };
+
+  form.addEventListener('submit', handleSubmit);
 }
