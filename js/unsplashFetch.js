@@ -5,6 +5,7 @@ import {
 } from './createElements.js';
 
 export default function initFetch() {
+  const body = document.querySelector('body');
   const form = document.querySelector('form');
   const inputSearch = document.querySelector('#search');
   let countPage = 1;
@@ -20,7 +21,7 @@ export default function initFetch() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    body.style.justifyContent = 'flex-start';
     unsplashAPI().then((datas) => {
       datas.results.forEach((data) => {
         console.log(data);
