@@ -2,9 +2,11 @@ import {
   createCardImage,
   createImage,
   createButton,
+  containerImages,
 } from './createElements.js';
 
 export default function initFetch() {
+  const body = document.querySelector('body');
   const form = document.querySelector('form');
   const inputSearch = document.querySelector('#search');
   let countPage = 1;
@@ -21,9 +23,13 @@ export default function initFetch() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    console.log(event.type === 'submit');
+    if (event.type === 'submit') {
+      containerImages.innerHTML = '';
+    }
+    body.style.justifyContent = 'flex-start';
     unsplashAPI().then((datas) => {
       datas.results.forEach((data) => {
-        console.log(data);
         const img = createImage(data.urls.regular, data.alt_description);
         createCardImage(img);
       });
