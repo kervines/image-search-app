@@ -1,12 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&display=swap');
+
+:root {
+  --bg-color: #333;
+  --text-color: #eee;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: 'Roboto', sans-serif;
 }
 html {
+  font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
 }
 body {
@@ -14,30 +21,35 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: #099;
-  color: white;
+  justify-content: space-between;
+  background-color: var(--bg-color);
+  color: #eee;
 }
 input,
 button {
   color: #333;
 }
 .container {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   padding: 1rem 2rem;
+  /* background-color: tomato; */
 }
 .container h1 {
   user-select: none;
 }
 form {
+  width: 600px;
   display: flex;
-  box-shadow: 4px 4px 0 #333;
+  box-shadow: 4px 4px 0 #04bdc4;
 }
+
 form #search {
+  width: 100%;
   font-size: 1.5rem;
   padding: 0.5rem;
   border: none;
@@ -49,7 +61,7 @@ form input[type='submit'] {
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    background-color: #077;
+    background-color: #04bdc4;
     color: white;
   }
 }
@@ -57,11 +69,12 @@ form input[type='submit'] {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
+  padding: 1rem 0;
 }
 .card-image {
   overflow: hidden;
   height: 300px;
-  box-shadow: 8px 8px 0 #077;
+  box-shadow: 8px 8px 0 #04bdc4;
 }
 .card-image img {
   object-fit: cover;
@@ -80,11 +93,53 @@ form input[type='submit'] {
   border: none;
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  box-shadow: 4px 4px 0 #333;
+  box-shadow: 4px 4px 0 #04bdc4;
   transition: 0.2s;
   cursor: pointer;
   &:hover {
-    background-color: #077;
+    background-color: #06a0a5;
     color: white;
   }
+}
+
+#footer {
+  display: flex;
+  width: 100%;
+  padding: 2rem;
+  color: #333;
+  background-color: #04bdc4;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+
+  &:hover {
+    color: #aaffff;
+  }
+}
+
+#footer ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.perfil {
+  font-size: 1rem;
+}
+
+.perfil p {
+  font-style: italic;
+}
+
+.perfil span {
+  color: #fff;
 }

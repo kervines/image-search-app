@@ -3,6 +3,7 @@ import {
   createImage,
   createButton,
   containerImages,
+  container,
 } from './createElements.js';
 
 export default function initFetch() {
@@ -27,6 +28,8 @@ export default function initFetch() {
     if (event.type === 'submit') {
       containerImages.innerHTML = '';
     }
+
+    container.style.height = 'auto';
     body.style.justifyContent = 'flex-start';
     unsplashAPI().then((datas) => {
       datas.results.forEach((data) => {

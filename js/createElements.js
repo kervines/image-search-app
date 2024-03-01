@@ -1,4 +1,4 @@
-const container = document.querySelector('.container');
+export const container = document.querySelector('.container');
 export const containerImages = document.querySelector('.container-images');
 
 export function createCardImage(imgElement) {
