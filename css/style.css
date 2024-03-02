@@ -143,11 +143,18 @@ form input[type='submit'] {
 .btn {
   text-transform: uppercase;
   font-weight: bold;
+  border-radius: 20px;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   font-size: 1rem;
   transition: 0.2s;
   cursor: pointer;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  transition: transform 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 #footer {
