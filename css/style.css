@@ -73,17 +73,20 @@ form {
   gap: 2rem;
 }
 
-.suggestion a {
+.suggestion button {
   font-size: 1rem;
+  font-weight: bold;
   transition: 0.3s;
+  border: none;
   color: var(--bg-color);
+  cursor: pointer;
 }
 
-.suggestion a::after {
+.suggestion button::after {
   background-color: var(--bg-color);
 }
 
-.suggestion a::after,
+.suggestion button::after,
 #footer li a::after {
   content: '';
   display: block;
@@ -92,7 +95,7 @@ form {
   transition: 0.3s;
   border-radius: 4px;
 }
-.suggestion a:hover::after {
+.suggestion button:hover::after {
   width: 100%;
 }
 
