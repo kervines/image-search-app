@@ -1,4 +1,5 @@
 export const container = document.querySelector('.container');
+export const containerButton = document.querySelector('.container-button');
 export const containerImages = document.querySelector('.container-images');
 
 export function createCardImage(imgElement) {
@@ -15,11 +16,12 @@ export function createImage(url, alt) {
   return img;
 }
 
-export function createButton(callback) {
+export function createButton(event, callback) {
   const button = document.createElement('button');
   button.innerText = 'Show more';
   button.classList.add('btn');
-  container.appendChild(button);
+  button.type = event;
+  containerButton.appendChild(button);
 
   button.addEventListener('click', callback);
 }
